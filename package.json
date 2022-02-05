@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/Ldeguzman9/Social-Network-API#readme",
   "dependencies": {
+    "express.js": "^1.0.0",
     "mongoose": "^6.2.0"
   }
 }

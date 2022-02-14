@@ -12,7 +12,7 @@ const reactionSchema = new Schema(
       required: true,
       maxLength: 280,
     },
-    useername: {
+    username: {
       type: String,
       required: true,
     },
@@ -25,8 +25,8 @@ const reactionSchema = new Schema(
   {
     toJSON: {
       getters: true,
-      id: false,
     },
+    id: false,
   }
 );
 

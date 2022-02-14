@@ -5,13 +5,14 @@ const Reaction = require("../models/Reaction");
 const thoughtController = {
   // retrieve all thoughts
   getAllThoughts(req, res) {
-    Thought.find({})
-      .populate({
-        path: "user",
-        select: "-__v",
-      })
-      .select("-__v")
-      .sort({ _id: -1 })
+    Thought.find()
+      // .populate({
+      //   path: "users",
+      //   select: "-__v",
+      // })
+      // .select("-__v")
+      // .sort({ _id: -1 })
+      .sort({ createdAt: -1 })
       .then((dbThoughtData) => res.json(dbThoughtData))
       .catch((err) => {
         console.log(err);
@@ -40,10 +41,10 @@ const thoughtController = {
   // retrieve thought by ID
   getThoughtById({ params }, res) {
     Thought.findOne({ _id: params.id })
-      .populate({
-        path: "User",
-        select: "-__v",
-      })
+      // .populate({
+      //   path: "User",
+      //   select: "-__v",
+      // })
 
       .select("-__v")
       .then((dbThoughtData) => res.json(dbThoughtData))
@@ -96,11 +97,11 @@ const thoughtController = {
       .catch((err) => res.status(500).json(err));
   },
   // remove reaction
-  deleteReaction({ params }, res) {
+  deleteReaction(req, res) {
     Thought.findOneAndUpdate(
-      { _id: params.thoughtId },
-      { $pull: { reactions: params.reactionId } },
-      { new: true }
+      { _id: req.params.thoughtId },
+      { $pull: { reactions: { reactionId: req.params.reactionId } } },
+      { new: true, runValidators: true }
     )
       .then((dbThoughtData) => res.json(dbThoughtData))
       .catch((err) => res.json(err));

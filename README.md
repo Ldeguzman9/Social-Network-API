@@ -2,12 +2,6 @@
 
 This is an API for a Social Network Web application.
 
-Users can:
-
-- Share their thoughts
-- React to friends’ thoughts
-- Create a friends list
-
 # User Story
 
 AS A social media startup
@@ -28,14 +22,16 @@ THEN I am able to successfully create and delete reactions to thoughts and add a
 
 # Social Network API Features:
 
-1. Ability to use GET routes for all categories, all products, and all tags.
-2. Ability to use GET routes for a single category, a single product, and a single tag.
-3. Ability to POST, PUT, and DELETE routes for categories, products, and tags.
+Users can:
+
+1. Share their thoughts
+2. React to friends’ thoughts
+3. Create a friends list
 
 # Social Network API Screen Shots
 
 - **Insomnia Test**
-  ![Insomnia Test]()
+  ![Insomnia Test](https://github.com/Ldeguzman9/Social-Network-API/blob/main/assets/images/Screenshot%202022-02-14%20at%202.01.10%20PM.png?raw=true)
 
 # Technical Skills
 
